@@ -1,0 +1,12 @@
+{
+  "name": "UdaciMobileFlashcards",
+  "displayName": "UdaciMobileFlashcards",
+  "expo": {
+    "name": "UdaciMobileFlashcards",
+    "slug": "UdaciMobileFlashcards",
+    "version": "1.0.0",
+    "assetBundlePatterns": [
+      "**/*"
+    ]
+  }
+}
