@@ -1,9 +1,11 @@
 import React from 'react';
-import { Text } from 'react-native';
+import { View, Text } from 'react-native';
 
 const NewDeck = () => {
   return (
-    <Text>New Deck View</Text>
+    <View>
+      <Text>New Deck</Text>
+    </View>
   );
 }
 

@@ -1,9 +1,15 @@
 import React from 'react';
-import { Text } from 'react-native';
+import { Button, View, Text } from 'react-native';
 
-const Decks = () => {
+const Decks = ({ navigation }) => {
   return (
-    <Text>Decks View</Text>
+    <View>
+      <Text>Decks View</Text>
+      <Button
+        title='View Deck'
+        onPress={() => navigation.navigate('Deck View')}
+      />
+    </View>
   );
 }
 
