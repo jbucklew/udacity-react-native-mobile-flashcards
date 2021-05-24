@@ -17,6 +17,8 @@ import AppStatusBar from './components/AppStatusBar';
 import Decks from './components/Decks';
 import AddDeck from './components/AddDeck';
 import DeckView from './components/DeckView';
+import QuizView from './components/QuizView';
+import AddCard from './components/AddCard';
 
 const Tab = Platform.OS === 'ios'
   ? createBottomTabNavigator()
@@ -26,12 +28,12 @@ const Stack = createStackNavigator();
 
 function DeckStackNavigator() {
   return (
-    <NavigationContainer independent={true}>
-      <Stack.Navigator>
-        <Stack.Screen name="Decks" component={Decks} />
-        <Stack.Screen name="Deck View" component={DeckView} />
-      </Stack.Navigator>
-    </NavigationContainer>
+    <Stack.Navigator>
+      <Stack.Screen name='Decks' component={Decks} />
+      <Stack.Screen name='Deck View' component={DeckView} />
+      <Stack.Screen name='Quiz View' component={QuizView} />
+      <Stack.Screen name='Add Card' component={AddCard} />
+    </Stack.Navigator>
   );
 }
 
@@ -43,8 +45,8 @@ export default function App() {
         <AppStatusBar />
         <NavigationContainer>
           <Tab.Navigator>
-            <Tab.Screen name="Decks" component={DeckStackNavigator} />
-            <Tab.Screen name="Add Deck" component={AddDeck} />
+            <Tab.Screen name='Decks' component={DeckStackNavigator} />
+            <Tab.Screen name='Add Deck' component={AddDeck} />
           </Tab.Navigator>
         </NavigationContainer>
       </View>

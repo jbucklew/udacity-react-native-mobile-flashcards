@@ -5,21 +5,32 @@ import { addDeck } from '../actions';
 import { saveDeck } from '../utils/api';
 
 const AddDeck = (props) => {
-  const { dispatch, navigation } = props;
+  const { dispatch, navigation, deckNames } = props;
   const [deckName, setDeckName] = useState('');
 
   const toHome = () => {
-    navigation.navigate('Decks');
+    navigation.navigate('Deck View', { deckName });
   }
 
-  const onPress = () => {
-    dispatch(addDeck(deckName));
+  const createDeck = () => {
+    if (deckName && deckName.length > 0) {
+      if (deckNames.includes(deckName)) {
+        alert('There is already a deck with that name.  Choose a different name.');
 
-    setDeckName('');
+      } else {
+        console.log('add deck deckname');
+        console.log(deckName);
+        dispatch(addDeck(deckName));
 
-    toHome();
+        setDeckName('');
 
-//     saveDeck({ deckName });
+        toHome();
+
+        saveDeck({ deckName });
+      }
+    } else {
+      alert('Deck name can not be blank');
+    }
   };
 
   return (
@@ -32,11 +43,17 @@ const AddDeck = (props) => {
         defaultValue={deckName}
       />
       <TouchableOpacity
-        onPress={onPress}>
-        <Text>Add Deck</Text>
+        onPress={createDeck}>
+        <Text>Create Deck</Text>
       </TouchableOpacity>
     </View>
   );
 }
 
-export default connect()(AddDeck);
+function mapStateToProps(decks) {
+  return {
+    deckNames: Object.keys(decks)
+  }
+}
+
+export default connect(mapStateToProps)(AddDeck);
