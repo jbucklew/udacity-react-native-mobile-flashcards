@@ -1,8 +1,4 @@
-// gesture-handler must be at the top according to the documentation
-// for react-navigation
-// import 'react-native-gesture-handler';
-// import { StatusBar } from 'expo-status-bar';
-import React from 'react';
+import React, { useEffect } from 'react';
 import { View, Platform } from 'react-native';
 
 import { createStore } from 'redux';
@@ -19,6 +15,8 @@ import AddDeck from './components/AddDeck';
 import DeckView from './components/DeckView';
 import QuizView from './components/QuizView';
 import AddCard from './components/AddCard';
+import { setLocalNotification } from './utils/notification';
+
 
 const Tab = Platform.OS === 'ios'
   ? createBottomTabNavigator()
@@ -38,6 +36,11 @@ function DeckStackNavigator() {
 }
 
 export default function App() {
+  // TODO: add setLocalNotification() to useEffect for componentDidMount
+  useEffect(() => {
+    console.log('setting local notification');
+    setLocalNotification();
+  });
 
   return (
     <Provider store={createStore(reducer)}>

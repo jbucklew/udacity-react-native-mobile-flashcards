@@ -1,8 +1,18 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { View, Text, TouchableOpacity } from 'react-native';
+import { clearLocalNotifications, setLocalNotification } from '../utils/notification';
 
 const QuizResults = (props) => {
   const { score, restartQuiz, backToDeck } = props;
+
+  // TODO: when quiz complete, if NOTIFICATION hasn't been sent today
+  // clear todays notification and set for tomorrow.
+  // from UdaciFitness
+  useEffect(() => {
+    console.log('clearing local notification for today');
+    clearLocalNotifications()
+      .then(setLocalNotification());
+  });
 
   return (
     <View>

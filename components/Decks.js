@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { Button, View, Text, TouchableOpacity } from 'react-native';
+import { View, Text, TouchableOpacity } from 'react-native';
 import { connect } from 'react-redux';
 import { receiveDecks } from '../actions';
 import { getDecks } from '../utils/api';
@@ -11,10 +11,6 @@ const Decks = (props) => {
 
   useEffect(() => {
     console.log('Decks Component getting inital decks from async storage');
-    // const decks = getDecks();
-    // console.log(decks);
-    // dispatch(receiveDecks(decks));
-
 
     const fetchData = async () => {
       const decks = await getDecks();
@@ -22,12 +18,6 @@ const Decks = (props) => {
       dispatch(receiveDecks(decks));
    }
    fetchData();
-    // getDecks()
-    //   .then((decks) => {
-    //     console.log('decks again');
-    //     console.log(decks);
-    //     dispatch(receiveDecks(decks));
-    //   });
   }, []);
 
   return (

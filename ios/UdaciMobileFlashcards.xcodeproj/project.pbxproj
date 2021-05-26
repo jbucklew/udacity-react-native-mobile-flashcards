@@ -25,6 +25,7 @@
 		13B07FB51A68108700A75B9A /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = UdaciMobileFlashcards/Images.xcassets; sourceTree = "<group>"; };
 		13B07FB61A68108700A75B9A /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = UdaciMobileFlashcards/Info.plist; sourceTree = "<group>"; };
 		13B07FB71A68108700A75B9A /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = UdaciMobileFlashcards/main.m; sourceTree = "<group>"; };
+		52442BEA265C72D000829E5E /* UdaciMobileFlashcards.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; name = UdaciMobileFlashcards.entitlements; path = UdaciMobileFlashcards/UdaciMobileFlashcards.entitlements; sourceTree = "<group>"; };
 		58EEBF8E8E6FB1BC6CAF49B5 /* libPods-UdaciMobileFlashcards.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-UdaciMobileFlashcards.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		6C2E3173556A471DD304B334 /* Pods-UdaciMobileFlashcards.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UdaciMobileFlashcards.debug.xcconfig"; path = "Target Support Files/Pods-UdaciMobileFlashcards/Pods-UdaciMobileFlashcards.debug.xcconfig"; sourceTree = "<group>"; };
 		7A4D352CD337FB3A3BF06240 /* Pods-UdaciMobileFlashcards.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UdaciMobileFlashcards.release.xcconfig"; path = "Target Support Files/Pods-UdaciMobileFlashcards/Pods-UdaciMobileFlashcards.release.xcconfig"; sourceTree = "<group>"; };
@@ -49,6 +50,7 @@
 		13B07FAE1A68108700A75B9A /* UdaciMobileFlashcards */ = {
 			isa = PBXGroup;
 			children = (
+				52442BEA265C72D000829E5E /* UdaciMobileFlashcards.entitlements */,
 				BB2F792B24A3F905000567C9 /* Supporting */,
 				008F07F21AC5B25A0029DE68 /* main.jsbundle */,
 				13B07FAF1A68108700A75B9A /* AppDelegate.h */,
@@ -295,6 +297,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = UdaciMobileFlashcards/UdaciMobileFlashcards.entitlements;
 				CURRENT_PROJECT_VERSION = 1;
 				ENABLE_BITCODE = NO;
 				GCC_PREPROCESSOR_DEFINITIONS = (
@@ -323,6 +326,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = UdaciMobileFlashcards/UdaciMobileFlashcards.entitlements;
 				CURRENT_PROJECT_VERSION = 1;
 				INFOPLIST_FILE = UdaciMobileFlashcards/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
