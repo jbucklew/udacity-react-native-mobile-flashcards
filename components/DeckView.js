@@ -2,34 +2,34 @@ import React from 'react';
 import { View, Text, TouchableOpacity } from 'react-native';
 import { connect } from 'react-redux';
 import { removeDeck } from '../actions';
+import { deleteDeck } from '../utils/api';
 
 const DeckView = (props) => {
   const { navigation, route, dispatch, decks } = props;
   const deckName = route.params.deckName;
-  console.log(`DeckView for deckName ${deckName}`);
 
-  const addCard = () => {
+  const handleAddCard = () => {
     navigation.navigate(
       'Add Card',
       { deckName: deckName }
     );
   }
 
-  const startQuiz = () => {
+  const handleStartQuiz = () => {
     navigation.navigate(
       'Quiz View',
       { deckName }
     );
   }
 
-  const deleteDeck = () => {
-    console.log(`deleting deck ${deckName}`);
-    navigation.navigate('Decks');
-    //navigation.goBack();
+  const handleDeleteDeck = () => {
+    // delete deck from async storage
+    deleteDeck({ deckName });
+
     dispatch(removeDeck(deckName));
-    // TODO: update reducer and action to deckName from deck
-    // and add api call to removeDeck
-    // navigate back to deck view
+
+    navigation.navigate('Decks');
+
   }
 
   return (
@@ -37,13 +37,13 @@ const DeckView = (props) => {
       { deckName in decks && (<>
       <Text>Deck View {deckName}</Text>
       <Text>{decks[deckName].questions.length} Cards</Text>
-      <TouchableOpacity onPress={addCard}>
+      <TouchableOpacity onPress={handleAddCard}>
         <Text>Add Card</Text>
       </TouchableOpacity>
-      <TouchableOpacity onPress={startQuiz}>
+      <TouchableOpacity onPress={handleStartQuiz}>
         <Text>Start Quiz</Text>
       </TouchableOpacity>
-      <TouchableOpacity onPress={deleteDeck}>
+      <TouchableOpacity onPress={handleDeleteDeck}>
         <Text>Delete Deck</Text>
       </TouchableOpacity>
       </>)}

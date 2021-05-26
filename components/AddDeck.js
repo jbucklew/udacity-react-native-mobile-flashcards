@@ -5,8 +5,8 @@ import { addDeck } from '../actions';
 import { saveDeck } from '../utils/api';
 
 const AddDeck = (props) => {
-  const { dispatch, navigation, deckNames } = props;
   const [deckName, setDeckName] = useState('');
+  const { dispatch, navigation, deckNames } = props;
 
   const toHome = () => {
     navigation.navigate('Deck View', { deckName });
@@ -18,16 +18,16 @@ const AddDeck = (props) => {
         alert('There is already a deck with that name.  Choose a different name.');
 
       } else {
-        console.log('add deck deckname');
-        console.log(deckName);
         dispatch(addDeck(deckName));
 
         setDeckName('');
 
         toHome();
 
+        // save new deck to async storage
         saveDeck({ deckName });
       }
+
     } else {
       alert('Deck name can not be blank');
     }

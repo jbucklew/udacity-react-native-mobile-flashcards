@@ -5,15 +5,13 @@ import { addCard } from '../actions';
 import { saveCard } from '../utils/api';
 
 const AddCard = (props) => {
-  const { dispatch, route, navigation } = props;
-  const deckName = route.params.deckName;
   const [question, setQuestion] = useState('');
   const [answer, setAnswer] = useState('');
+  const { dispatch, route, navigation } = props;
+  const deckName = route.params.deckName;
 
   const createCard = () => {
     if (question && question.length > 0 && answer && answer.length > 0) {
-      console.log('deckName');
-      console.log(deckName);
       const card = {
         question,
         answer
@@ -25,7 +23,9 @@ const AddCard = (props) => {
 
       navigation.goBack();
 
+      // save card to async storage
       saveCard({ deckName, card });
+
     } else {
       alert('Both Question and Answer must contain values.');
     }

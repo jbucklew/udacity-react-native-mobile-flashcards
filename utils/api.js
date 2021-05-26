@@ -48,15 +48,16 @@ export const saveDeck = async ({ deckName }) => {
   }
 }
 
-// remove deck from async storage
-export const removeDeck = async ({ deckName }) => {
+// delete deck from async storage
+export const deleteDeck = async ({ deckName }) => {
   try {
     // get existing decks
     const decks = await AsyncStorage.getItem(DECKS_STORAGE_KEY);
     const data = JSON.parse(decks);
+
     // delete requested deck
-    data[key] = undefined;
-    delete data[key];
+    data[deckName] = undefined;
+    delete data[deckName];
 
     // add remaining decks back to async storage
     await AsyncStorage.setItem(DECKS_STORAGE_KEY, JSON.stringify(data));

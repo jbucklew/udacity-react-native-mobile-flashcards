@@ -23,21 +23,11 @@ function decks(state = {}, action) {
       }
 
     case REMOVE_DECK:
-      console.log(`reducer remove deck ${action.deckName}`);
       decks = {...state};
-      console.log('before');
-      console.log(decks);
       delete decks[action.deckName];
-      console.log('after');
-      console.log(decks);
       return decks;
 
     case ADD_CARD:
-      // TODO: remove
-      // ...state is the entire state object, keys defined after will
-      // replace previous ones from the spread
-      console.log('reducer');
-      console.log(action);
       return {
         ...state,
         [action.deckName]: {

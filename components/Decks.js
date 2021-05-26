@@ -6,15 +6,12 @@ import { getDecks } from '../utils/api';
 
 const Decks = (props) => {
   const { decks, dispatch, navigation } = props;
-  console.log('Decks component');
-  console.log(decks);
 
+  // react hook that can be used in place of componentDidMount()
+  // get decks from async storage and update state
   useEffect(() => {
-    console.log('Decks Component getting inital decks from async storage');
-
     const fetchData = async () => {
       const decks = await getDecks();
-      console.log(decks);
       dispatch(receiveDecks(decks));
    }
    fetchData();
@@ -23,7 +20,6 @@ const Decks = (props) => {
   return (
     <View>
       <Text>Decks View</Text>
-      <Text>{JSON.stringify(decks)}</Text>
       {Object.keys(decks).length > 0
         ? Object.keys(decks).map((deckName) => {
           return (

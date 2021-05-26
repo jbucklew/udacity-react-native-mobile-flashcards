@@ -18,7 +18,6 @@ export function addDeck(deck) {
 }
 
 export function removeDeck(deckName) {
-  console.log(`action removeDeckname ${deckName}`);
   return {
     type: REMOVE_DECK,
     deckName
