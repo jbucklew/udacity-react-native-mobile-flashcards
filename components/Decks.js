@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import { receiveDecks } from '../actions';
 import { getDecks } from '../utils/api';
 
+// display deck view - used for React Native's FlatList
 const Deck = ({ title, numCards, navigation }) => (
     <TouchableOpacity
       style={styles.deck}
