@@ -10,6 +10,7 @@ AsyncStorage is used to store Decks and their Flashcards.  Quiz scores are not s
 To get started:
 
 * install all project dependencies with `yarn install`
+* for iOS, `cd ios` then run `pod install`. After install `cd ..` to the project root directory.
 * start the development server with `yarn ios` or `yarn andriod`
 
 ## Note:
