@@ -9,6 +9,9 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { createMaterialTopTabNavigator } from '@react-navigation/material-top-tabs';
 import { createStackNavigator } from '@react-navigation/stack';
+
+import { FontAwesome, FontAwesome5 } from '@expo/vector-icons';
+
 import AppStatusBar from './components/AppStatusBar';
 import Decks from './components/Decks';
 import AddDeck from './components/AddDeck';
@@ -36,9 +39,7 @@ function DeckStackNavigator() {
 }
 
 export default function App() {
-  // TODO: add setLocalNotification() to useEffect for componentDidMount
   useEffect(() => {
-    console.log('setting local notification');
     setLocalNotification();
   });
 
@@ -48,8 +49,24 @@ export default function App() {
         <AppStatusBar />
         <NavigationContainer>
           <Tab.Navigator>
-            <Tab.Screen name='Decks' component={DeckStackNavigator} />
-            <Tab.Screen name='Add Deck' component={AddDeck} />
+            <Tab.Screen
+              name='Decks'
+              component={DeckStackNavigator}
+              options={{
+                tabBarIcon: ({ color }) => (
+                  <FontAwesome5 name='layer-group' color={color} size={30} />
+                )
+              }}
+            />
+            <Tab.Screen
+              name='Add Deck'
+              component={AddDeck}
+              options={{
+                tabBarIcon: ({ color }) => (
+                  <FontAwesome name='plus-square' color={color} size={30} />
+                )
+              }}
+            />
           </Tab.Navigator>
         </NavigationContainer>
       </View>
